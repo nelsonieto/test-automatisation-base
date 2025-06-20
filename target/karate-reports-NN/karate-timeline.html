@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"karate-test[1:9]","start":1750436149931,"end":1750436152057,"title":"karate-test[1:9] 11:15:49.931-11:15:52.057 Obtener todos los personajes"},{"id":2,"group":1,"content":"karate-test[2:15]","start":1750436152076,"end":1750436152773,"title":"karate-test[2:15] 11:15:52.076-11:15:52.773 Crear personaje válido"},{"id":3,"group":1,"content":"karate-test[3:21]","start":1750436152787,"end":1750436153225,"title":"karate-test[3:21] 11:15:52.787-11:15:53.225 Obtener personaje por ID (existente)"},{"id":4,"group":1,"content":"karate-test[4:26]","start":1750436153238,"end":1750436153610,"title":"karate-test[4:26] 11:15:53.238-11:15:53.610 Crear personaje con nombre duplicado (error 400)"},{"id":5,"group":1,"content":"karate-test[5:32]","start":1750436153620,"end":1750436154091,"title":"karate-test[5:32] 11:15:53.620-11:15:54.091 Crear personaje con datos inválidos (error 400)"},{"id":6,"group":1,"content":"karate-test[6:38]","start":1750436154105,"end":1750436154483,"title":"karate-test[6:38] 11:15:54.105-11:15:54.483 Obtener personaje inexistente (error 404)"},{"id":7,"group":1,"content":"karate-test[7:43]","start":1750436154493,"end":1750436154889,"title":"karate-test[7:43] 11:15:54.493-11:15:54.889 Actualizar personaje (válido)"},{"id":8,"group":1,"content":"karate-test[8:50]","start":1750436154901,"end":1750436155343,"title":"karate-test[8:50] 11:15:54.901-11:15:55.343 Actualizar personaje inexistente (error 404)"},{"id":9,"group":1,"content":"karate-test[9:56]","start":1750436155354,"end":1750436155972,"title":"karate-test[9:56] 11:15:55.354-11:15:55.972 Eliminar personaje (válido)"},{"id":10,"group":1,"content":"karate-test[10:61]","start":1750436155981,"end":1750436156442,"title":"karate-test[10:61] 11:15:55.981-11:15:56.442 Eliminar personaje inexistente (error 404)"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
